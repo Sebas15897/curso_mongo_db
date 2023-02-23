@@ -11,8 +11,12 @@ const getUser = (req, res) => {
   resp.send({ data });
 };
 
-const createUsers = (req, res) => {};
+const createUser = async (req, res) => {
+  const { body } = req;
+  const data = await usersModel.create(body);
+  res.send({ data });
+};
 const updatedUsers = (req, res) => {};
 const deleteUsers = (req, res) => {};
 
-module.exports = { getUsers, createUsers, updatedUsers, deleteUsers, getUser };
+module.exports = { getUsers, createUser, updatedUsers, deleteUsers, getUser };
